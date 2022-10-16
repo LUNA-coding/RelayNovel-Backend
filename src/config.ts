@@ -1,4 +1,4 @@
 export default {
-  port: process.env.port,
-  jwtSecret: process.env.jwtSecret,
+  jwtSecret: process.env.JWT_SECRET,
+  port: process.env.PORT,
 };
