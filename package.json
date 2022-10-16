@@ -1,0 +1,42 @@
+{
+  "name": "RelayNovel-Backend",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "npx prisma generate && tsc -p .",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint --fix src/**/*.ts",
+    "test": "jest --detectOpenHandles --forceExit",
+    "dev": "cross-env NODE_ENV=develop NODE_PATH=./src nodemon --exec ts-node -r tsconfig-paths/register  src/index.ts",
+    "serve": "npm run prisma:push && npm run build && node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/index.js",
+    "start": "npm run serve",
+    "prisma:push": "npx prisma db push --accept-data-loss && npx prisma generate"
+  },
+  "repository": "git@github.com:LUNA-coding/RelayNovel-Backend.git",
+  "author": "오명훈 <omh02033@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.11.0",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "@prisma/client": "4.4.0",
+    "@types/cors": "^2.8.12",
+    "@types/jsonwebtoken": "^8.5.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express-bearer-token": "^2.4.0",
+    "helmet": "^6.0.0",
+    "joi": "^17.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment-timezone": "^0.5.38",
+    "prisma": "^4.4.0",
+    "tsconfig-paths": "^4.1.0",
+    "winston": "^3.8.2",
+    "winston-daily-rotate-file": "^4.7.1"
+  }
+}
